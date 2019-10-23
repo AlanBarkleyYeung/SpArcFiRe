@@ -398,6 +398,9 @@ else
     barClusM = barClus;
 end
 barUsedM = ~isempty(barClusM);
+if imageGuiding && barUsedM %IDK if this will work
+    barClusM = mergeClustersByGuide(barClusM, outputPath, stgs.imageGuidingThreshold, guideImageFile);
+end
 gxyParams.failed2revDuringSecondaryMerging = failed2revDuringMerge;
     
 % else
@@ -417,7 +420,7 @@ if ~isempty(gxyName) && outputParams.writeImages
     imwrite(clusOverlay, [outputPath '-G_imgClusters-merged.png']);
     pause(sleepSecondsAfterImageWrite);
     
-    clusMask showClustersFromMtxs(cat(3, clusMtxsM, barClusM), size(img), [], [], false);
+    clusMask = showClustersFromMtxs(cat(3, clusMtxsM, barClusM), size(img), [], [], false);
     imwrite(clusMask, [outputPath '-H_clusMask-merged.png']);
     pause(sleepSecondsAfterImageWrite);
     
