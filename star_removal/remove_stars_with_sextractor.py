@@ -69,7 +69,7 @@ def restore_padding(img, pad_amts):
 
 def gen_sextractor_segmentation(in_filepath, tmp_catalog_filepath, tmp_seg_filepath):
     logger.info("running SExtractor")
-    sextractor_args = ['sex-2.19', in_filepath,
+    sextractor_args = ['sex', in_filepath,
 	    '-c', sextractor_configfile, 
 	    '-CHECKIMAGE_TYPE', 'SEGMENTATION',
 	    '-CHECKIMAGE_NAME', tmp_seg_filepath,
@@ -472,6 +472,8 @@ if __name__ == '__main__':
                 sex_in_filepath = tmp_depad_imgpath
                 ctr_r = ctr_r - removed_padding[0][0]
                 ctr_c = ctr_c - removed_padding[1][0]
+                ctr_r = int(round(ctr_r))
+                ctr_c = int(round(ctr_c))
             logger.info('segmentation image dimensions (depadded): {0}'.format(
                 depad_img.shape))
             seg_img = gen_sextractor_segmentation(sex_in_filepath, 
@@ -506,8 +508,9 @@ if __name__ == '__main__':
                 logger.info("wrote {0}".format(out_filepath))
             
             scipy.misc.imsave(os.path.join(out_dirpath, in_imgname + '_starmask.png'), mask_levels)
-        except (ValueError,OverflowError,IndexError):
+        except Exception as e:
             logger.warning("could not create starmask for " + in_imgname)
+            logger.warning(e)
             continue
 if not keep_seg_img:
     shutil.rmtree(tmpdir)
