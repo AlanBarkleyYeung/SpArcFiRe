@@ -295,6 +295,17 @@ else
     gxyParams.brtUnifScore = prevFitParams.brtUnifScore;
     gxyParams.gaussLogLik = prevFitParams.gaussLogLik;
     gxyParams.contourBrtRatio = prevFitParams.contourBrtRatio;
+    %WARNING: the prevFitParams might not have the following if it is old. The 2016 run will not have these
+    gxyParams.badBulgeFitFlag = prevFitParams.badBulgeFitFlag;
+    gxyParams.starMaskUsed = prevFitParams.starMaskUsed;
+    gxyParams.noiseMaskUsed = prevFitParams.noiseMaskUsed;
+    gxyParams.bulgeAxisRatio = prevFitParams.bulgeAxisRatio;
+    gxyParams.bulgeMajAxsLen = prevFitParams.bulgeMajAxsLen;
+    gxyParams.bulgeMajAxsAngle = prevFitParams.bulgeMajAxsAngle;
+    gxyParams.diskMajAxsAngleRadians = prevFitParams.diskMajAxsAngleRadians;
+    gxyParams.bulgeAvgBrt = prevFitParams.bulgeAvgBrt;
+    gxyParams.bulgeDiskBrtRatio = prevFitParams.bulgeDiskBrtRatio;
+    gxyParams.numElpsRefits = prevFitParams.numElpsRefits;
 end
 fitParams.diskMajAxsLen = majAxsLen;
 fitParams.diskMajAxsAngle = majAxsAngle;
@@ -306,6 +317,17 @@ fitParams.wtdLik = gxyParams.wtdLik;
 fitParams.likOfCtr = gxyParams.likOfCtr;
 fitParams.brtUnifScore = gxyParams.brtUnifScore;
 fitParams.contourBrtRatio = contourBrtRatio;
+%added
+fitParams.bulgeAxisRatio = gxyParams.bulgeAxisRatio;
+fitParams.bulgeMajAxsLen = gxyParams.bulgeMajAxsLen;
+fitParams.bulgeMajAxsAngle = gxyParams.bulgeMajAxsAngle;
+fitParams.diskMajAxsAngleRadians = gxyParams.diskMajAxsAngleRadians;
+fitParams.starMaskUsed = gxyParams.starMaskUsed;
+fitParams.noiseMaskUsed = gxyParams.noiseMaskUsed;
+fitParams.badBulgeFitFlag = gxyParams.badBulgeFitFlag;
+fitParams.bulgeAvgBrt = gxyParams.bulgeAvgBrt;
+fitParams.bulgeDiskBrtRatio = gxyParams.bulgeDiskBrtRatio;
+fitParams.numElpsRefits = gxyParams.numElpsRefits;
 
 clear imgCtrR
 clear imgCtrC
