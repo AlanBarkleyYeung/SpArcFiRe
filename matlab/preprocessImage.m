@@ -317,7 +317,6 @@ fitParams.wtdLik = gxyParams.wtdLik;
 fitParams.likOfCtr = gxyParams.likOfCtr;
 fitParams.brtUnifScore = gxyParams.brtUnifScore;
 fitParams.contourBrtRatio = contourBrtRatio;
-%added
 fitParams.bulgeAxisRatio = gxyParams.bulgeAxisRatio;
 fitParams.bulgeMajAxsLen = gxyParams.bulgeMajAxsLen;
 fitParams.bulgeMajAxsAngle = gxyParams.bulgeMajAxsAngle;
