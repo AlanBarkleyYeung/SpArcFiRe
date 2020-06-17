@@ -73,7 +73,7 @@ if ~strcmpi(params_filename, 'NONE')
     end
 end
 
-if nargin < 9 %EDITED
+if nargin < 9
     stdzParamsList = {};
 end
 
@@ -180,7 +180,6 @@ if ischar(imgNames)
     end
 end
 
-%EDITS HERE
 guideDirGiven=false;
 if imageGuiding
     validateattributes(guides,{'char','cell'},{});
@@ -232,7 +231,6 @@ if imageGuiding
 else
     guideImageFile='NONE';
 end
-%EDITS END
 
 % if ischar(imgPaths)
 %     fprintf('imgPaths specified as a path string, attempting to load from disk.\n');
@@ -349,7 +347,6 @@ for imgIdx = startIdx:1:length(imgNames)
        curImg = rgb2gray(curImg);
     end
     
-    %EDITS HERE
     if imageGuiding
         if guideDirGiven
         %get guide from list of guides
@@ -408,7 +405,7 @@ for imgIdx = startIdx:1:length(imgNames)
     else
         guideImageFile = 'NONE';
     end
-    %EDITS END%
+
     tStart = tic;
     cpuTStart = cputime();
     if groupOutputByInputImage

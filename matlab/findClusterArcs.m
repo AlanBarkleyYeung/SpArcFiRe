@@ -417,7 +417,7 @@ if ~isempty(gxyName) && outputParams.writeImages
     imwrite(clusOverlay, [outputPath '-G_imgClusters-merged.png']);
     pause(sleepSecondsAfterImageWrite);
     
-    clusMask showClustersFromMtxs(cat(3, clusMtxsM, barClusM), size(img), [], [], false);
+    clusMask = showClustersFromMtxs(cat(3, clusMtxsM, barClusM), size(img), [], [], false);
     imwrite(clusMask, [outputPath '-H_clusMask-merged.png']);
     pause(sleepSecondsAfterImageWrite);
     
